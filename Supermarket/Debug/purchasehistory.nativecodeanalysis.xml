@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\source\repos\supermarket\supermarket\</FILEPATH>
+      <FILENAME>predefined c++ types (compiler internal)</FILENAME>
+      <LINE>33</LINE>
+      <COLUMN>22</COLUMN>
+    </SFA>
+    <DEFECTCODE>28285</DEFECTCODE>
+    <DESCRIPTION>Для функции "new" синтаксическая ошибка "return" в "SAL_writableTo(byteCount(__formal(0,_Size)))" рядом с "byteCount(__formal(0".</DESCRIPTION>
+    <FUNCTION></FUNCTION>
+    <DECORATED></DECORATED>
+    <FUNCLINE>0</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\source\repos\supermarket\supermarket\</FILEPATH>
+      <FILENAME>purchasehistory.cpp</FILENAME>
+      <LINE>5</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>PurchaseHistory::{ctor}</FUNCTION>
+    <DECORATED>??0PurchaseHistory@@QAE@XZ</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\source\repos\supermarket\supermarket\</FILEPATH>
+      <FILENAME>purchasehistory.cpp</FILENAME>
+      <LINE>16</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>26444</DEFECTCODE>
+    <DESCRIPTION>Avoid unnamed objects with custom construction and destruction (es.84).</DESCRIPTION>
+    <FUNCTION>PurchaseHistory::addCheck</FUNCTION>
+    <DECORATED>?addCheck@PurchaseHistory@@QAEXVPayCheck@@@Z</DECORATED>
+    <FUNCLINE>14</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

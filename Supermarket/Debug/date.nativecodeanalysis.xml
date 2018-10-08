@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\source\repos\supermarket\supermarket\</FILEPATH>
+      <FILENAME>date.cpp</FILENAME>
+      <LINE>15</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>Date::{ctor}</FUNCTION>
+    <DECORATED>??0Date@@QAE@XZ</DECORATED>
+    <FUNCLINE>15</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\source\repos\supermarket\supermarket\</FILEPATH>
+      <FILENAME>date.cpp</FILENAME>
+      <LINE>15</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Date::m_seconds' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Date::{ctor}</FUNCTION>
+    <DECORATED>??0Date@@QAE@XZ</DECORATED>
+    <FUNCLINE>15</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\source\repos\supermarket\supermarket\</FILEPATH>
+      <FILENAME>date.cpp</FILENAME>
+      <LINE>32</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Date::m_mins' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Date::{ctor}</FUNCTION>
+    <DECORATED>??0Date@@QAE@HHH@Z</DECORATED>
+    <FUNCLINE>32</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\source\repos\supermarket\supermarket\</FILEPATH>
+      <FILENAME>date.cpp</FILENAME>
+      <LINE>32</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Date::m_hour' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Date::{ctor}</FUNCTION>
+    <DECORATED>??0Date@@QAE@HHH@Z</DECORATED>
+    <FUNCLINE>32</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\source\repos\supermarket\supermarket\</FILEPATH>
+      <FILENAME>date.cpp</FILENAME>
+      <LINE>32</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Date::m_seconds' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Date::{ctor}</FUNCTION>
+    <DECORATED>??0Date@@QAE@HHH@Z</DECORATED>
+    <FUNCLINE>32</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

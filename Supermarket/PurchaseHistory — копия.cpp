@@ -1,0 +1,164 @@
+#include "PurchaseHistory.h"
+#include <algorithm>
+
+
+
+PurchaseHistory::PurchaseHistory()
+{
+}
+
+
+PurchaseHistory::~PurchaseHistory()
+{
+	for (auto i : checks)
+		delete i;
+
+	for (auto j : products)
+		delete j.first;
+}
+
+void PurchaseHistory::addCheck(PayCheck *_check, int _id)
+{
+	checks.push_back(_check);
+}
+
+void PurchaseHistory::addItem(PurchaseItem *_product, int _id)
+{
+	for(auto i:checks)
+		if(i->getId() == _id)
+			i->addPurchaseItem(_product);
+
+	addProduct(_product);
+}
+
+Date PurchaseHistory::getCheckDate(int _id) const
+{
+	for(auto i:checks)
+		if(i->getId() == _id)
+			return i->getDate();
+}
+
+std::vector<PurchaseItem*> PurchaseHistory::theMostExpansivePurches()
+{
+	std::vector<PurchaseItem*> theMostExpansive;
+	for (int size = 0; size < 3; size++) {
+		PurchaseItem* maxPrice = checks[0]->getAllItemInCheck()[0];
+		for (auto i : checks) {
+			std::vector<PurchaseItem*> allItems = i->getAllItemInCheck();
+			for (auto j : allItems)
+				if (maxPrice->getFullPrice() < j->getFullPrice() && 
+					std::find(theMostExpansive.begin(), theMostExpansive.end(), j) == theMostExpansive.end())
+						maxPrice = j;
+		}
+		theMostExpansive.push_back(maxPrice);
+	}
+
+	return theMostExpansive;
+}
+
+std::map<Product::ProductType, double> PurchaseHistory::getPriceBytype()
+{
+	std::map<Product::ProductType, double> priceByType;
+
+	for(auto i :checks)
+		if(i->getDate().getMonth() == latestMonth())
+			for (auto j : i->getAllItemInCheck())
+			{
+				if (priceByType.find(j->getProduct()->getProductType()) == priceByType.end())
+					priceByType.emplace(j->getProduct()->getProductType(), j->getFullPrice());
+				else
+					priceByType.at(j->getProduct()->getProductType()) += j->getFullPrice();
+			}
+	
+	return priceByType;
+}
+
+double PurchaseHistory::averageMonthlyConsumption()
+{
+	double averageConsumption = 0;
+
+	for(auto i : checks) 
+		if (i->getDate().getMonth() <= latestMonth() - 3)
+			averageConsumption += i->getCheckFullPrice();
+
+	return averageConsumption / 3;
+}
+
+std::vector<double> PurchaseHistory::getClassificationOfAllProducts(int _period)
+{
+	std::vector<double> classification(3);
+	int popular = 0;
+
+	for (auto i : products)
+	{
+		for (auto j : checks)
+			if (std::find(j->getAllItemInCheck().begin(), j->getAllItemInCheck().end(), i) != j->getAllItemInCheck().end())
+				popular++;
+
+		if (popular >= checks.size() * 0.8)
+			classification[0] += i.first->getFullPrice() * i.second;
+
+		if (checks.size() > 3 && popular < 3 && popular > 1)
+			classification[1] += i.first->getFullPrice() * i.second;
+
+		if (popular == 1)
+			classification[2] += i.first->getFullPrice() * i.second;
+	}
+
+
+
+
+	/*for (auto k : products) {
+		int popular = 0;
+		double price = 0;
+		for (auto i : checks) {
+			if (i->getDate().getMonth() <= _period) {
+				for (auto j : i->getAllItemInCheck())
+					if (j == k) {
+						popular++;
+						price += j->getFullPrice();
+						break;
+					}
+			}
+		}
+		if (popular >= checks.size() * 0.8)
+			classification[0] += price;
+
+		if (checks.size() > 3 && popular < 3 && popular > 1)
+			classification[1] += price;
+
+		if (popular == 1)
+			classification[2] += price;
+	}*/
+	return classification;
+}
+
+double PurchaseHistory::prediction()
+{
+	double predict = 0;
+	predict += getClassificationOfAllProducts()[0];
+	predict += getClassificationOfAllProducts(latestMonth() - 3)[1]/ 3;
+	
+	return predict;
+}
+
+int PurchaseHistory::latestMonth()
+{
+	int lastMonth = 0;
+
+	for (auto i:checks) 
+		if (lastMonth < i->getDate().getMonth())
+			lastMonth = i->getDate().getMonth();
+
+	return lastMonth;
+}
+
+void PurchaseHistory::addProduct(PurchaseItem* _product)
+{
+	if (products.find(_product) != products.end()) {
+		products.at(_product)++;
+		return;
+	}
+
+	products.emplace(_product,1);		
+}
