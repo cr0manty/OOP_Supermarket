@@ -1,5 +1,6 @@
 #pragma once
 #include "PayCheck.h"
+#include <unordered_map>
 
 class PurchaseHistory
 {

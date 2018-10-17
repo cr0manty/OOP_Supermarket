@@ -1,7 +1,4 @@
 #include "PurchaseHistory.h"
-#include <algorithm>
-
-
 
 PurchaseHistory::PurchaseHistory()
 {
@@ -75,15 +72,24 @@ std::map<Product::ProductType, double> PurchaseHistory::getPriceBytype()
 
 std::map<PurchaseItem*, double> PurchaseHistory::theMostPurchased()
 {
+	
 	std::map<PurchaseItem*, double> topPurchasedItems;
+	std::unordered_map<PurchaseItem*,int> buffer;
 
-	/*for (int i = 0; i < 5; i++){
-		PurchaseItem* max = products.at(1).first;
-		for (auto j : products)
-			if (j.first > max && topPurchasedItems.find(j.first) == topPurchasedItems.end())
-				max = j.first;
-		topPurchasedItems.emplace(max, products.find(max)->second * products.find(max)->first->getFullPrice());
-	}*/
+	for (auto j : checks) {
+		for (auto k : j->getProducts()) {
+			//if (buffer.find(k) != buffer.end())
+			buffer.at(k)++;
+			//else
+			buffer.emplace(k, 1);
+		}
+	}
+	
+	//std::sort(buffer, buffer.begin(), buffer.end());
+
+	for (int i = 0; i < 5; i++) {
+
+	}
 
 	return topPurchasedItems;
 }

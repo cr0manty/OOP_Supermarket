@@ -12,6 +12,7 @@ public:
 	double getFullPrice() const;
 	Product* getProduct() const;
 	std::string getName() const;
+	bool operator==(PurchaseItem&);
 private:
 	Product *product;
 	double amount;

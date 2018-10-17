@@ -21,6 +21,11 @@ std::string PurchaseItem::getName() const
 	return product->getName();
 }
 
+bool PurchaseItem::operator==(PurchaseItem &_item)
+{
+	return this->getName() == _item.getName();
+}
+
 double PurchaseItem::getAmount() const
 {
 	return amount;
