@@ -256,22 +256,40 @@ DECLARE_OOP_TEST(test_prediction)
 
 /*****************************************************************************/
 
+void createtestCheck(Controller &_test)
+{
+	_test.createPurchaseItem("Computer", 20000, Product::Goods, 2);
+	_test.createPurchaseItem("Cupboard", 15999, Product::OtherGoods, 1);
+	_test.createPurchaseItem("Meet", 100, Product::Food, 9);
+
+	int uniqId6 = _test.createCheck("2018/12/08/19:04:51");
+	_test.addPurchaseToCheck(uniqId6, "Computer");
+	_test.addPurchaseToCheck(uniqId6, "Cupboard");
+	_test.addPurchaseToCheck(uniqId6, "Meet");
+}
+
+bool operator==(std::vector<PurchaseItem*> &_test1, std::vector<PurchaseItem*> &_test2)
+{
+	for (int i = 0; i != _test1.size() || i != _test2.size(); i++)
+		if (_test2[i]->getName() != _test2[i]->getName())
+			return false;
+
+	return true;
+}
+
+/***********************/
+
 DECLARE_OOP_TEST(test_get_3_most_esxp_purchases)
 {
 	Controller c;
+	Controller testControl;
 	createBills(c);
+	createtestCheck(testControl);
 
-
+	std::vector<PurchaseItem*> testStatic = testControl.threeMostExpensiveCostsForTheHistory();
 	std::vector<PurchaseItem*> test = c.threeMostExpensiveCostsForTheHistory();
-	int checkID = c.createCheck("2018/08/24/18:00:01");
-	for(auto i: c.threeMostExpensiveCostsForTheHistory())
-		c.addPurchaseToCheck(checkID, i->getName());
-	int testCheck = c.createCheck("2018/08/24/18:00:01");
-	c.addPurchaseToCheck(checkID, "Computer");
-	c.addPurchaseToCheck(checkID, "Cupboard");
-	c.addPurchaseToCheck(checkID, "Meet");
-	//assert(== test);
-	//assert(test == std::vector<PurchaseItem*>{)
+
+	assert(testStatic == test);
 }
 
 /*****************************************************************************/
@@ -287,6 +305,13 @@ DECLARE_OOP_TEST(test_get_empty_3_most_esxp_purchases)
 }
 
 /*****************************************************************************/
+
+//DECLARE_OOP_TEST(test_get_empty_5_top_purchases)
+//{
+//	Controller c;
+//	createBills(c);
+//	std::map<PurchaseItem*, double> test = c.mostFrequentlyPurchased();
+//}
 
 /*****************************************************************************/
 

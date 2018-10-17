@@ -105,6 +105,12 @@ double Controller::prediction()
 	return checkList->prediction();
 }
 
+std::vector<PurchaseItem*> Controller::getPurchaseItems()
+{
+	return products;
+}
+
+
 int Controller::createCheck(const char* _date)
 {
 	if (strlen(_date) < 1)

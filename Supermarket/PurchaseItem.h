@@ -12,7 +12,6 @@ public:
 	double getFullPrice() const;
 	Product* getProduct() const;
 	std::string getName() const;
-
 private:
 	Product *product;
 	double amount;

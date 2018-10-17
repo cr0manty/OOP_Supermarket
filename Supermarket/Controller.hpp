@@ -54,6 +54,12 @@ public:
 
 	double prediction();
 
+	/*-----------------------------------------------------------------*/
+
+	std::vector<PurchaseItem*> getPurchaseItems();
+
+	
+
 private:
 
 	std::vector<PurchaseItem*> products;
@@ -61,6 +67,7 @@ private:
 
 	int id;
 };
+
 
 
 /*****************************************************************************/

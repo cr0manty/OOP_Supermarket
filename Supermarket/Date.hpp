@@ -1,5 +1,3 @@
-// (C) 2013-2016, Sergei Zaychenko, KNURE, Kharkiv, Ukraine
-
 #ifndef _DATE_HPP_
 #define _DATE_HPP_
 

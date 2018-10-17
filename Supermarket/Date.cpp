@@ -1,6 +1,3 @@
-// (C) 2013-2016, Sergei Zaychenko, KNURE, Kharkiv, Ukraine
-
-/*****************************************************************************/
 #define _CRT_SECURE_NO_WARNINGS
 #include "date.hpp"
 

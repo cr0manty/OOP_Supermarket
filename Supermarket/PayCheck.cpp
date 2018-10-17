@@ -49,6 +49,11 @@ double PayCheck::getCheckFullPrice()
 	return fullPrice;
 }
 
+std::vector<PurchaseItem*> PayCheck::getProducts() const
+{
+	return products;
+}
+
 bool PayCheck::isProductAlredyBought(std::string const & _name)
 {
 	for (auto i : products)

@@ -16,7 +16,7 @@ public:
 	int getId() const;
 	Date getDate() const;
 	double getCheckFullPrice();
-
+	std::vector<PurchaseItem*> getProducts() const;
 private:
 	int id;
 	Date date;
