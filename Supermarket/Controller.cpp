@@ -28,7 +28,7 @@ double Controller::getProductPrice(std::string const &_name) const
 	throw std::logic_error(Messages::ProductNotFound);
 }
 
-double Controller::getProductAmount(std::string const & _name) const
+int Controller::getProductAmount(std::string const & _name) const
 {
 	for (auto i : products)
 		if (i->getName() == _name)

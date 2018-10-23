@@ -7,7 +7,7 @@ public:
 	PurchaseItem(std::string const &, double, Product::ProductType, int);
 	~PurchaseItem();
 
-	double getAmount() const;
+	int getAmount() const;
 	double calculatingTheCost();
 	double getFullPrice() const;
 	Product* getProduct() const;
@@ -15,7 +15,7 @@ public:
 	bool operator==(PurchaseItem&);
 private:
 	Product *product;
-	double amount;
+	int amount;
 	double fullPrice;
 
 };

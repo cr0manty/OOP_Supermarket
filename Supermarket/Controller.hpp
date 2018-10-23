@@ -28,7 +28,7 @@ public:
 
 	double getProductPrice(std::string const &) const;
 
-	double getProductAmount(std::string const &) const;
+	int getProductAmount(std::string const &) const;
 
 	Product::ProductType getProductType(std::string const &) const;
 

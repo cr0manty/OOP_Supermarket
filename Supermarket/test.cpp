@@ -306,13 +306,6 @@ DECLARE_OOP_TEST(test_get_empty_3_most_esxp_purchases)
 
 /*****************************************************************************/
 
-//DECLARE_OOP_TEST(test_get_empty_5_top_purchases)
-//{
-//	Controller c;
-//	createBills(c);
-//	std::map<PurchaseItem*, double> test = c.mostFrequentlyPurchased();
-//}
-
 /*****************************************************************************/
 
 /*****************************************************************************/

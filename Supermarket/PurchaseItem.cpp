@@ -26,7 +26,7 @@ bool PurchaseItem::operator==(PurchaseItem &_item)
 	return this->getName() == _item.getName();
 }
 
-double PurchaseItem::getAmount() const
+int PurchaseItem::getAmount() const
 {
 	return amount;
 }
